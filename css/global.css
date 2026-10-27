@@ -946,7 +946,7 @@ html {
     margin-bottom: 16px;
 }
 
-.footer-menu ul li a {
+.footer-menu ul li a,.footer-menu ul li span {
     color: #fff;
     font-family: 'Satoshi';
     font-size: 14px;
