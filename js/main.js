@@ -1550,7 +1550,7 @@ window.addEventListener('load', function () {
      const message = document.getElementById("waitlistMessage");
 
      const fieldMap = {
-       name: "full_name",
+       name: "firstname",
        email: "email",
        mobile: "phone",
        city: "city",

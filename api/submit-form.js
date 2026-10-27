@@ -49,7 +49,7 @@ export default async function handler(req, res) {
     if (
       fields.some(({ name }) => !allowedFields.has(name)) ||
       !submittedFields.email ||
-      !submittedFields.full_name ||
+      !submittedFields.firstname ||
       !submittedFields.phone ||
       !submittedFields.city ||
       submittedFields
