@@ -1549,6 +1549,12 @@ window.addEventListener('load', function () {
      const buttonLabel = button.querySelector(".submit-label");
      const message = document.getElementById("waitlistMessage");
 
+     const emailInput = form.elements.namedItem("email");
+      const mobileInput = form.elements.namedItem("mobile");
+
+      const emailError = document.getElementById("emailError");
+      const mobileError = document.getElementById("mobileError");
+
      const fieldMap = {
        name: "firstname",
        email: "email",
@@ -1564,7 +1570,56 @@ window.addEventListener('load', function () {
      form.addEventListener("submit", async (event) => {
        event.preventDefault();
 
+       const emailInput = form.elements.namedItem("email");
+     const mobileInput = form.elements.namedItem("mobile");
+
+     const emailError = document.getElementById("emailError");
+     const mobileError = document.getElementById("mobileError");
+
+     // Clear previous errors
+     emailError.textContent = "";
+     mobileError.textContent = "";
+
+     emailInput.removeAttribute("aria-invalid");
+     mobileInput.removeAttribute("aria-invalid");
+
+     let isValid = true;
+
+     // Email validation
+     const email = emailInput.value.trim();
+     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+     if (!email) {
+       emailError.textContent = "Email is required.";
+       emailInput.setAttribute("aria-invalid", "true");
+       isValid = false;
+     } else if (!emailPattern.test(email)) {
+       emailError.textContent = "Please enter a valid email address.";
+       emailInput.setAttribute("aria-invalid", "true");
+       isValid = false;
+     }
+
+     // Saudi mobile validation: exactly 05XXXXXXXX
+     const mobile = mobileInput.value.trim();
+     const mobilePattern = /^05\d{8}$/;
+
+     if (!mobile) {
+       mobileError.textContent = "Mobile number is required.";
+       mobileInput.setAttribute("aria-invalid", "true");
+       isValid = false;
+     } else if (!mobilePattern.test(mobile)) {
+       mobileError.textContent =
+         "Enter a valid Saudi mobile number (05XXXXXXXX).";
+       mobileInput.setAttribute("aria-invalid", "true");
+       isValid = false;
+     }
+
+     // Stop submission if email or mobile is invalid
+     if (!isValid) return;
+
        if (!form.reportValidity()) return;
+
+
 
        button.disabled = true;
        buttonLabel.textContent = "Submitting...";
@@ -1619,6 +1674,15 @@ window.addEventListener('load', function () {
          button.disabled = false;
          buttonLabel.textContent = "Join Waitlist";
        }
+     });
+     emailInput.addEventListener("input", () => {
+       emailError.textContent = "";
+       emailInput.removeAttribute("aria-invalid");
+     });
+
+     mobileInput.addEventListener("input", () => {
+       mobileError.textContent = "";
+       mobileInput.removeAttribute("aria-invalid");
      });
    });
 

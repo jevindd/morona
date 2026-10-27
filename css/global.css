@@ -2428,7 +2428,17 @@ body {
 #waitlistMessage:empty {
   display: none;
 }
+.field-error {
+  display: block;
+  color: #d93025;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
 
+.field-error:empty {
+  display: none;
+}
 
 @media only screen and (min-width: 768px) {
 

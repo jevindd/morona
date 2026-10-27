@@ -751,16 +751,31 @@
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email"
-                placeholder="your@email.com" autocomplete="email" required>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                aria-describedby="emailError"
+              />
+              <small id="emailError" class="field-error" aria-live="polite"></small>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="mobile">Mobile</label>
-              <input type="tel" id="mobile" name="mobile"
-                placeholder="05X XXX XXXX" autocomplete="tel" required>
+              <input
+                type="tel"
+                name="mobile"
+                id="mobile"
+                required
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="05XXXXXXXX"
+                aria-describedby="mobileError"
+              />
+              <small id="mobileError" class="field-error" aria-live="polite"></small>
             </div>
 
             <div class="form-group">
@@ -776,19 +791,19 @@
               <div class="select-wrap">
                 <select id="main-bank" name="main-bank" required>
                   <option value="" selected disabled>Select</option>
-                  <option value="al-rajhi-bank">Al Rajhi Bank</option>
-                  <option value="snb">SNB</option>
-                  <option value="riyad-bank">Riyad Bank</option>
-                  <option value="sab">SAB</option>
-                  <option value="banque-saudi-fransi">Banque Saudi Fransi</option>
-                  <option value="alinma-bank">Alinma Bank</option>
-                  <option value="arab-national-bank">Arab National Bank</option>
-                  <option value="bank-albilad">Bank Albilad</option>
-                  <option value="bank-aljazira">Bank AlJazira</option>
-                  <option value="saudi-investment-bank">Saudi Investment Bank</option>
-                  <option value="stc-bank">STC Bank</option>
-                  <option value="d360-bank">D360 Bank</option>
-                  <option value="other">Other</option>
+                  <option value="Al Rajhi Bank">Al Rajhi Bank</option>
+                  <option value="SNB">SNB</option>
+                  <option value="Riyad Bank">Riyad Bank</option>
+                  <option value="SAB">SAB</option>
+                  <option value="Banque Saudi Fransi">Banque Saudi Fransi</option>
+                  <option value="Alinma Bank">Alinma Bank</option>
+                  <option value="Arab National Bank">Arab National Bank</option>
+                  <option value="Bank Albilad">Bank Albilad</option>
+                  <option value="Bank AlJazira">Bank AlJazira</option>
+                  <option value="Saudi Investment Bank">Saudi Investment Bank</option>
+                  <option value="STC Bank">STC Bank</option>
+                  <option value="D360 Bank">D360 Bank</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -812,11 +827,11 @@
               <div class="select-wrap">
                 <select id="interested-in" name="interested-in" required>
                   <option value="" selected disabled>Pick one</option>
-                  <option value="morona-card">Morona Card</option>
-                  <option value="transfers-bills">Transfers, Bills</option>
-                  <option value="vision">Vision</option>
-                  <option value="insights">Insights</option>
-                  <option value="rewards">Rewards</option>
+                  <option value="Morona Card">Morona Card</option>
+                  <option value="Transfers, Bills">Transfers, Bills</option>
+                  <option value="Vision">Vision</option>
+                  <option value="Insights">Insights</option>
+                  <option value="Rewards">Rewards</option>
                 </select>
               </div>
             </div>
@@ -855,104 +870,6 @@
           <p id="waitlistMessage" role="status" aria-live="polite"></p>
         </form>
 
-        <!-- <form class="waitlist-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="mobile">Mobile</label>
-              <input type="tel" id="mobile" name="mobile" placeholder="05X XXX XXXX">
-            </div>
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" id="city" name="city" placeholder="Riyadh">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="main-bank">Main Bank</label>
-              <div class="select-wrap">
-                <select id="main-bank" name="main-bank">
-                  <option value="" selected disabled>Select</option>
-                  <option value="al-rajhi-bank">Al Rajhi Bank</option>
-                  <option value="snb">SNB</option>
-                  <option value="riyad-bank">Riyad Bank</option>
-                  <option value="sab">SAB</option>
-                  <option value="banque-saudi-fransi">Banque Saudi Fransi</option>
-                  <option value="alinma-bank">Alinma Bank</option>
-                  <option value="arab-national-bank">Arab National Bank</option>
-                  <option value="bank-albilad">Bank Albilad</option>
-                  <option value="bank-aljazira">Bank AlJazira</option>
-                  <option value="saudi-investment-bank">Saudi Investment Bank</option>
-                  <option value="stc-bank">STC Bank</option>
-                  <option value="d360-bank">D360 Bank</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="bank-accounts">Bank Accounts</label>
-              <div class="select-wrap">
-                <select id="bank-accounts" name="bank-accounts">
-                  <option value="" selected disabled>How many accounts?</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3+">3+</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row form-row-full">
-            <div class="form-group">
-              <label for="interested-in">Most Interested In </label>
-              <div class="select-wrap">
-                <select id="interested-in" name="interested-in">
-                  <option value="" selected disabled>Pick one</option>
-                  <option value="morona-card">Morona Card</option>
-                  <option value="transfers-bills">Transfers, Bills</option>
-                  <option value="vision">Vision</option>
-                  <option value="insights">Insights</option>
-                  <option value="rewards">Rewards</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row form-row-full">
-            <div class="form-group form-consent">
-              <label for="early-access-consent">
-                <input
-                  type="checkbox"
-                  id="early-access-consent"
-                  name="early_access_consent"
-                  value="yes"
-                  required
-                >
-                <span>I agree to be contacted about early access.</span>
-              </label>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-submit">
-            Join Waitlist
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M18 8L22 12L18 16" stroke="white" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path d="M2 12H22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></span>
-          </button>
-        </form> -->
       </div>
     </section>
 
