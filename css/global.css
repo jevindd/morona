@@ -2403,6 +2403,33 @@ body {
     width: 100%;
 }
 
+
+.form-consent label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.form-consent input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+#waitlistMessage {
+  margin-top: 12px;
+}
+
+#waitlistMessage:empty {
+  display: none;
+}
+
+
 @media only screen and (min-width: 768px) {
 
     .header-menu .header-cta,

@@ -741,7 +741,121 @@
             <p>Get exclusive access before launch and be first to try Morona.</p>
         </div>
 
-        <form class="waitlist-form">
+        <form class="waitlist-form" id="waitlistForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name"
+                placeholder="Your name" autocomplete="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email"
+                placeholder="your@email.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mobile">Mobile</label>
+              <input type="tel" id="mobile" name="mobile"
+                placeholder="05X XXX XXXX" autocomplete="tel" required>
+            </div>
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city"
+                placeholder="Riyadh" autocomplete="address-level2" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="main-bank">Main Bank</label>
+              <div class="select-wrap">
+                <select id="main-bank" name="main-bank" required>
+                  <option value="" selected disabled>Select</option>
+                  <option value="al-rajhi-bank">Al Rajhi Bank</option>
+                  <option value="snb">SNB</option>
+                  <option value="riyad-bank">Riyad Bank</option>
+                  <option value="sab">SAB</option>
+                  <option value="banque-saudi-fransi">Banque Saudi Fransi</option>
+                  <option value="alinma-bank">Alinma Bank</option>
+                  <option value="arab-national-bank">Arab National Bank</option>
+                  <option value="bank-albilad">Bank Albilad</option>
+                  <option value="bank-aljazira">Bank AlJazira</option>
+                  <option value="saudi-investment-bank">Saudi Investment Bank</option>
+                  <option value="stc-bank">STC Bank</option>
+                  <option value="d360-bank">D360 Bank</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bank-accounts">Bank Accounts</label>
+              <div class="select-wrap">
+                <select id="bank-accounts" name="bank-accounts" required>
+                  <option value="" selected disabled>How many accounts?</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3+">3+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row form-row-full">
+            <div class="form-group">
+              <label for="interested-in">Most Interested In</label>
+              <div class="select-wrap">
+                <select id="interested-in" name="interested-in" required>
+                  <option value="" selected disabled>Pick one</option>
+                  <option value="morona-card">Morona Card</option>
+                  <option value="transfers-bills">Transfers, Bills</option>
+                  <option value="vision">Vision</option>
+                  <option value="insights">Insights</option>
+                  <option value="rewards">Rewards</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row form-row-full">
+            <div class="form-group form-consent">
+              <label for="early-access-consent">
+                <input
+                  type="checkbox"
+                  id="early-access-consent"
+                  name="early_access_consent"
+                  value="true"
+                  required
+                >
+                <span>I agree to be contacted about early access.</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-submit">
+            <span class="submit-label">Join Waitlist</span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 8L22 12L18 16"
+                  stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12H22"
+                  stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+          <p id="waitlistMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- <form class="waitlist-form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name</label>
@@ -838,7 +952,7 @@
                 <path d="M2 12H22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg></span>
           </button>
-        </form>
+        </form> -->
       </div>
     </section>
 

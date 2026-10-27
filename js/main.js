@@ -1539,4 +1539,87 @@ window.addEventListener('load', function () {
          scrollTop: $($.attr(this, 'href')).offset().top
       }, 500);
    });
+
+   document.addEventListener("DOMContentLoaded", () => {
+     const form = document.getElementById("waitlistForm");
+
+     if (!form) return;
+
+     const button = form.querySelector('[type="submit"]');
+     const buttonLabel = button.querySelector(".submit-label");
+     const message = document.getElementById("waitlistMessage");
+
+     const fieldMap = {
+       name: "full_name",
+       email: "email",
+       mobile: "phone",
+       city: "city",
+       "main-bank": "main_bank",
+       "bank-accounts": "bank_accounts",
+       "interested-in": "most_interested_in",
+       early_access_consent:
+         "i_agree_to_be_contacted_about_early_access_",
+     };
+
+     form.addEventListener("submit", async (event) => {
+       event.preventDefault();
+
+       if (!form.reportValidity()) return;
+
+       button.disabled = true;
+       buttonLabel.textContent = "Submitting...";
+       message.textContent = "";
+
+       try {
+         const fields = Object.entries(fieldMap).map(
+           ([htmlName, hubspotName]) => {
+             const input = form.elements.namedItem(htmlName);
+
+             return {
+               name: hubspotName,
+               value:
+                 input.type === "checkbox"
+                   ? String(input.checked)
+                   : input.value.trim(),
+             };
+           }
+         );
+
+         const response = await fetch("/api/submit-form", {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+           },
+           body: JSON.stringify({
+             fields,
+             pageUri: window.location.href,
+             pageName: document.title,
+           }),
+         });
+
+         const result = await response.json();
+
+         if (!response.ok || !result.success) {
+           throw new Error(
+             result.message || "Unable to submit the form."
+           );
+         }
+
+         form.reset();
+         message.textContent =
+           "You're on the list. We'll be in touch before launch.";
+         message.style.color = "green";
+       } catch (error) {
+         console.error("Waitlist submission error:", error);
+
+         message.textContent =
+           "Something went wrong. Please try again.";
+         message.style.color = "red";
+       } finally {
+         button.disabled = false;
+         buttonLabel.textContent = "Join Waitlist";
+       }
+     });
+   });
+
 })();
