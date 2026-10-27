@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     const fields = body.fields;
 
     const allowedFields = new Set([
-      "full_name",
+      "firstname",
       "email",
       "phone",
       "city",
