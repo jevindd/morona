@@ -97,20 +97,22 @@ export default async function handler(req, res) {
       }),
     });
 
+    
     if (!hubspotResponse.ok) {
       const errorDetails = await hubspotResponse.text();
 
-      console.error(
-        "HubSpot API error:",
-        hubspotResponse.status,
-        errorDetails.slice(0, 1500)
-      );
+      console.error("HubSpot API error:", {
+        status: hubspotResponse.status,
+        details: errorDetails,
+      });
 
       return res.status(502).json({
         success: false,
         message: "HubSpot rejected the submission.",
+        debugId: "HUBSPOT_SUBMISSION_FAILED",
       });
     }
+
 
     return res.status(200).json({
       success: true,
