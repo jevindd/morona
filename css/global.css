@@ -2405,12 +2405,14 @@ body {
 
 
 .form-consent label {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.2;
+    text-transform: none;
+    font-weight: 400;
 }
 
 .form-consent input[type="checkbox"] {
@@ -2422,7 +2424,10 @@ body {
 }
 
 #waitlistMessage {
-  margin-top: 12px;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: center;
 }
 
 #waitlistMessage:empty {
